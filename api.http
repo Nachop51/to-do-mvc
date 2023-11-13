@@ -1,0 +1,36 @@
+### Retrieve all todos
+GET http://localhost:3000/todos/
+
+### Retrieve a todo
+GET http://localhost:3000/todos/1
+
+### Create a todo
+POST http://localhost:3000/todos/
+Content-Type: application/json
+
+{
+  "title": "My todo",
+  "description": "My todo description"
+}
+
+### Retrieve by uuid
+GET http://localhost:3000/todos/14b1f20c-a4e9-4399-b558-b80f46705ad4
+
+### Update a todo
+PUT http://localhost:3000/todos/1
+Content-Type: application/json
+
+{
+  "description": "My todo description"
+}
+
+### Update a todo
+PUT http://localhost:3000/todos/1
+Content-Type: application/json
+
+{
+  "title": "My todo title"
+}
+
+### Delete a todo
+DELETE http://localhost:3000/todos/1

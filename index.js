@@ -21,3 +21,5 @@ app.use('/todos', createTodoRouter({ todoModel: TodoModel }))
 const PORT = process.env.PORT ?? 3000
 
 app.listen(PORT, () => console.log(`server listening on port http://localhost:${PORT}`))
+
+export default app

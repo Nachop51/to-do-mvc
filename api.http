@@ -14,18 +14,18 @@ Content-Type: application/json
 }
 
 ### Retrieve by uuid
-GET http://localhost:3000/todos/14b1f20c-a4e9-4399-b558-b80f46705ad4
+GET http://localhost:3000/todos/41a3c867-1e83-449c-856a-0c6549a943ff
 
 ### Update a todo
-PUT http://localhost:3000/todos/1
+PUT http://localhost:3000/todos/41a3c867-1e83-449c-856a-0c6549a943ff
 Content-Type: application/json
 
 {
-  "description": "My todo description"
+  "description": "My todo description!!!"
 }
 
 ### Update a todo
-PUT http://localhost:3000/todos/1
+PUT http://localhost:3000/todos/41a3c867-1e83-449c-856a-0c6549a943ff
 Content-Type: application/json
 
 {
@@ -33,4 +33,4 @@ Content-Type: application/json
 }
 
 ### Delete a todo
-DELETE http://localhost:3000/todos/1
+DELETE http://localhost:3000/todos/41a3c867-1e83-449c-856a-0c6549a943ff

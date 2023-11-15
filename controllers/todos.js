@@ -20,7 +20,7 @@ export class TodoController {
       return res.status(404).json({ message: 'Todo not found' })
     }
 
-    return res.status(200).json({ todo })
+    return res.status(200).json(todo)
   }
 
   createTodo = async (req, res) => {

@@ -2,7 +2,9 @@ import express, { json } from 'express'
 import morgan from 'morgan'
 import { corsMiddleware } from './middlewares/cors.js'
 import { createTodoRouter } from './routes/todos.js'
-import { TodoModel } from './models/todo.js'
+// import { TodoModel } from './models/local/todo.js'
+import { TodoModel } from './models/db/todo.js'
+import 'dotenv/config.js'
 
 const app = express()
 const logger = morgan('dev')

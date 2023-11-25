@@ -1,8 +1,8 @@
 ### Retrieve all todos
 GET http://localhost:3000/todos/
 
-### Retrieve a todo
-GET http://localhost:3000/todos/1
+### Retrieve by ID
+GET http://localhost:3000/todos/debbdb6e-3b65-4195-9517-bcd4404de7c8
 
 ### Create a todo
 POST http://localhost:3000/todos/
@@ -12,9 +12,6 @@ Content-Type: application/json
   "title": "My todo",
   "description": "My todo description"
 }
-
-### Retrieve by uuid
-GET http://localhost:3000/todos/41a3c867-1e83-449c-856a-0c6549a943ff
 
 ### Update a todo
 PUT http://localhost:3000/todos/41a3c867-1e83-449c-856a-0c6549a943ff
@@ -33,4 +30,4 @@ Content-Type: application/json
 }
 
 ### Delete a todo
-DELETE http://localhost:3000/todos/41a3c867-1e83-449c-856a-0c6549a943ff
+DELETE http://localhost:3000/todos/debbdb6e-3b65-4195-9517-bcd4404de7c8

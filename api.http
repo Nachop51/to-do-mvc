@@ -14,11 +14,11 @@ Content-Type: application/json
 }
 
 ### Update a todo
-PUT http://localhost:3000/todos/41a3c867-1e83-449c-856a-0c6549a943ff
+PUT http://localhost:3000/todos/653ebc79-01e6-4b1c-ac15-e04e2a3c23be
 Content-Type: application/json
 
 {
-  "description": "My todo description!!!"
+  "description": "Updated description"
 }
 
 ### Update a todo

@@ -25,7 +25,7 @@ export class TodoModel {
   static async getAll () {
     try {
       const result = await client.execute('SELECT id, title, description, done FROM todo')
-      console.log(result)
+
       return result.rows
     } catch (err) {
       console.error(err)
@@ -49,6 +49,7 @@ export class TodoModel {
 
   static async create ({ input }) {
     const randomId = crypto.randomUUID()
+
     try {
       const result = await client.execute({
         sql: 'INSERT INTO todo (id, title, description, done) VALUES (:id, :title, :description, :done)',
@@ -60,22 +61,11 @@ export class TodoModel {
         }
       })
 
-      // console.log(result)
       if (result.rowsAffected !== 1) {
         throw new Error('Failed to create todo')
       }
-    } catch (err) {
-      console.error(err)
-      return null
-    }
 
-    try {
-      const result = await client.execute({
-        sql: 'SELECT id, title, description, done FROM todo WHERE id = :id',
-        args: { id: randomId }
-      })
-
-      return result.rows[0] ?? null
+      return this.getById({ id: randomId })
     } catch (err) {
       console.error(err)
       return null
@@ -90,7 +80,7 @@ export class TodoModel {
       })
 
       if (result.rowsAffected !== 1) {
-        throw new Error('Failed to delete todo')
+        return false
       }
 
       return true
@@ -102,24 +92,25 @@ export class TodoModel {
 
   static async update ({ id, input }) {
     try {
+      // update dynamically based on input
+      const updateFields = Object.keys(input).map((key) => `${key} = :${key}`).join(', ')
+
       const result = await client.execute({
-        sql: 'UPDATE todo SET title = :title, description = :description, done = :done WHERE id = :id',
+        sql: `UPDATE todo SET ${updateFields} WHERE id = :id`,
         args: {
           id,
-          title: input.title,
-          description: input.description,
-          done: input.done
+          ...input
         }
       })
 
       if (result.rowsAffected !== 1) {
-        throw new Error('Failed to update todo')
+        return null
       }
 
-      return true
+      return this.getById({ id })
     } catch (err) {
       console.error(err)
-      return false
+      return null
     }
   }
 }

@@ -1,10 +1,10 @@
 CREATE TABLE IF NOT EXISTS todo (
-  id BINARY(36) NOT NULL,
+  id VARCHAR(36) NOT NULL,
   title TEXT,
   description TEXT,
   done BOOLEAN,
   PRIMARY KEY (id)
-)
+);
 
 -- INSERT INTO todo (id, title, description, done) VALUES (UUID_TO_BIN(UUID()), 'Title 1', 'Description 1', false);
 -- SELECT BIN_TO_UUID(id) AS id, title, description, done FROM todo;
